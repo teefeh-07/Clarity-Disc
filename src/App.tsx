@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { WalletConnect } from './components/WalletConnect'
+import { TransactionSender } from './components/TransactionSender'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,7 @@ function App() {
       <h1>Clarity-Disc</h1>
       <div className="card">
         <WalletConnect />
+        <TransactionSender />
         <div style={{ marginTop: '20px' }}>
             <button onClick={() => setCount((count) => count + 1)}>
             Count is {count}
