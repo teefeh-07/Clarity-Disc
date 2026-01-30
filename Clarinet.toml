@@ -1,0 +1,21 @@
+[project]
+name = "Clarity-Disc"
+authors = []
+description = ""
+telemetry = true
+cache_dir = "./.clarinet/cache"
+requirements = []
+
+[contracts.clarity-disc]
+path = "contracts/clarity-disc.clar"
+clarity_version = 4
+epoch = "3.3"
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
