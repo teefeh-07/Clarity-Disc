@@ -35,7 +35,7 @@ const main = () => {
 
     const branchName = `${type}/add-${path.basename(file).replace(/\./g, '-')}-${Date.now()}`;
     const prTitle = `${type}: ${msg}`;
-    
+
     // Generate elaborate PR description
     const prBody = `
 ## Overview
@@ -69,12 +69,14 @@ This change ensures strict modularity and type safety where applicable.
     // We assume remote 'origin' is set.
     try {
         run(`git push -u origin ${branchName}`);
-        
+
         // PR
         run(`gh pr create --title "${prTitle}" --body "${prBody}"`);
-        
+
         // Merge
         run(`gh pr merge ${branchName} --merge --delete-branch`);
+        run('git checkout main');
+        try { run(`git branch -D ${branchName}`); } catch (e) { }
     } catch (e) {
         console.log('Remote operations failed. Are you authenticated with gh?');
         // If gh fails, we might just merge locally to keep momentum
