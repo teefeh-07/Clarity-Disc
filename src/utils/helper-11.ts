@@ -1,1 +1,2 @@
-export const helper11 = () => "value11";
+
+export const helper11v2 = () => "value11v2";
