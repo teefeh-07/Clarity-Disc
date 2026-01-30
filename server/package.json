@@ -1,0 +1,8 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "@hirosystems/chainhooks-client": "latest"
+  }
+}
